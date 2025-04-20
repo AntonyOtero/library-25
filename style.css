@@ -1,0 +1,41 @@
+@import "modern-normalize.css";
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+    --copy-large: 1.2rem;
+    --copy-small: 0.833rem;
+    --copy-xsmall: 0.694rem;
+    font-family: "Libre Baskerville", serif;
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, figure, p, ol, ul {
+margin: 0;
+}
+
+ol[role="list"], ul[role="list"] {
+list-style: none;
+padding-inline: 0;
+}
+
+h1, h2, h3, h4, h5 {
+font-size: inherit;
+font-weight: inherit;
+}
+
+img {
+display: block;
+max-inline-size: 100%;
+}
+
+.title {
+    font-size: 2.986rem;
+    font-weight: bold;
+}
+
+.debug {
+    background-color: #f0bfbf;
+    border: 1px dashed #c36262;
+    padding: 10px;
+    margin: 10px 0;
+}
