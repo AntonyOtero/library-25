@@ -40,6 +40,26 @@ header {
     font-weight: bold;
 }
 
+main {
+    padding: 2rem;
+}
+
+.book-item {
+    margin-bottom: 2rem;
+}
+
+.book-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.book-title {
+    font-size: 2.488rem;
+    font-weight: bold;
+}
+
 .debug {
     background-color: #f0bfbf;
     border: 1px dashed #c36262;

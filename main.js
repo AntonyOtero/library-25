@@ -8,6 +8,16 @@ const myLibrary = [
         info: function() {
             return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
         }
+    },
+    {
+        title: "The Lord of the Rings",
+        author: "J.R.R. Tolkien",
+        pages: 1178,
+        read: false,
+        id: crypto.randomUUID(),
+        info: function() {
+            return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
+        }
     }
 ];
 
@@ -36,10 +46,10 @@ function displayBooks() {
         bookItem.classList.add("book-item");
         bookItem.innerHTML = `
             <div class="book-card">
-                <h2>${book.title}</h2>
-                <p>Author: ${book.author}</p>
-                <p>Pages: ${book.pages}</p>
-                <p>Read: ${book.read ? "Yes" : "No"}</p>
+                <h2 class="book-title">${book.title}</h2>
+                <p class="book-author">Author: ${book.author}</p>
+                <p class="book-pages">Pages: ${book.pages}</p>
+                <p class="book-read">Read: ${book.read ? "Yes" : "No"}</p>
             </div>
         `;
             // <button class="btn-delete" data-id="${book.id}">Delete</button>
