@@ -5,6 +5,11 @@ const myLibrary = [
     new Book("To Kill a Mockingbird", "Harper Lee", 281, false),
     new Book("1984", "George Orwell", 328, true),
     new Book("The Great Gatsby", "F. Scott Fitzgerald", 180, false),
+    new Book("Brave New World", "Aldous Huxley", 268, true),
+    new Book("Fahrenheit 451", "Ray Bradbury", 158, false),
+    new Book("The Grapes of Wrath", "John Steinbeck", 464, false),
+    new Book("The Picture of Dorian Gray", "Oscar Wilde", 254, true),
+    new Book("The Catch-22", "Joseph Heller", 453, false),
 ];
 
 function Book(title, author, pages, read) {
@@ -40,11 +45,14 @@ function displayBooks() {
         bookItem.innerHTML = `
             <div class="book-card">
                 <h2 class="book-title">${book.title}</h2>
-                <p class="book-author">Author: ${book.author}</p>
-                <p class="book-pages">Pages: ${book.pages}</p>
-                <p class="book-read">Read: ${book.read ? "Yes" : "No"}</p>
-                <button class="btn btn-read" data-id="${book.id}">${book.read ? "Finished" : "Not Read"}</button>
-                <button class="btn btn-delete" data-id="${book.id}">Delete</button>
+                <div class="book-info">
+                    <p class="book-author">Author: ${book.author}</p>
+                    <p class="book-pages">Pages: ${book.pages}</p>
+                    <button class="btn btn-read" data-id="${book.id}">${book.read ? "Finished" : "Not Read"}</button>
+                </div>
+                <button class="btn btn-delete" data-id="${book.id}">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>trash-can-outline</title><path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" /></svg>
+                </button>
             </div>
         `;
         books.appendChild(bookItem);

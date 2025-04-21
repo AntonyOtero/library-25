@@ -29,10 +29,41 @@ display: block;
 max-inline-size: 100%;
 }
 
+svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 header {
-    background-color: #222222;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    border-bottom: 2px solid #222222;
+    z-index: 100;
+}
+
+#open-modal-button {
+    font-weight: bold;
+    color: #222222;
+    background-color: #ffffff;
+}
+
+#open-modal-button:hover {
     color: #ffffff;
-    padding: 1rem;
+    background-color: #222222;
+    border-color: transparent;
 }
 
 .title {
@@ -40,24 +71,94 @@ header {
     font-weight: bold;
 }
 
-main {
+.library {
     padding: 2rem;
+    margin-top: 7rem;
 }
 
-.book-item {
-    margin-bottom: 2rem;
+.books {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 2rem;
 }
 
 .book-card {
-    background-color: #f9f9f9;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 100%;
+    min-height: 320px;
+    color: #352e39;
+    background-color: #e6e3df;
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 1rem;
+    padding: 2rem;
+    box-shadow: 5px 5px 10px 0px rgba(53,46,57,0.25);
+    -webkit-box-shadow: 5px 5px 10px 0px rgba(53,46,57,0.25);
+    -moz-box-shadow: 5px 5px 10px 0px rgba(53,46,57,0.25);
 }
 
 .book-title {
+    text-align: center;
     font-size: 2.488rem;
     font-weight: bold;
+}
+
+.book-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.btn-delete {
+    width: fit-content;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.5rem;
+    background-color: transparent;
+    border: 2px solid transparent;
+}
+
+.btn-delete:hover {
+    background-color: #e13f31;
+    fill: #e9e4df;
+    border: 2px solid #e9e4df;
+}
+
+.btn-delete svg {
+    pointer-events: none;
+}
+
+.btn-read {
+    width: fit-content;
+    text-align: left;
+    font-size: var(--copy-small);
+    color: #e6e3df;
+    background-color: #352e39;
+    border: 2px solid transparent;
+    border-radius: 50px;
+}
+
+.btn-read:hover {
+    background-color: #e6e3df;
+    color: #352e39;
+    border-color: #352e39;
+
+}
+.btn-read:active {
+    background-color: #f3f0ec;
+}
+
+.modal {
+    position: relative;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
 }
 
 .debug {
