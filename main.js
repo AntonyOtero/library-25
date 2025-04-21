@@ -38,6 +38,10 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 const books = document.querySelector(".books");
+const openNewBookModal = document.querySelector("#open-modal-button");
+const newBookModal = document.querySelector("#new-book-modal");
+const closeNewBookModal = document.querySelector("#close-modal-button");
+const addBookButton = document.querySelector("#add-book-button");
 
 function displayBooks() {
     books.innerHTML = "";
@@ -58,3 +62,26 @@ function displayBooks() {
 }
 
 displayBooks();
+
+openNewBookModal.addEventListener("click", () => {
+    newBookModal.showModal();
+    document.querySelector("#new-book-title").value = "";
+    document.querySelector("#new-book-author").value = "";
+    document.querySelector("#new-book-pages").value = "";
+    document.querySelector("#new-book-read").checked = false;
+});
+
+closeNewBookModal.addEventListener("click", () => {
+    newBookModal.close();
+});
+
+addBookButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    const newBookTitle = document.querySelector("#new-book-title").value;
+    const newBookAuthor = document.querySelector("#new-book-author").value;
+    const newBookPages = document.querySelector("#new-book-pages").value;
+    const newBookRead = document.querySelector("#new-book-read").checked;
+    addBookToLibrary(newBookTitle, newBookAuthor, newBookPages, newBookRead);
+    displayBooks();
+    newBookModal.close();
+});
