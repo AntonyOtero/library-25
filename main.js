@@ -1,24 +1,10 @@
 const myLibrary = [
-    {
-        title: "The Hobbit",
-        author: "J.R.R. Tolkien",
-        pages: 295,
-        read: true,
-        id: crypto.randomUUID(),
-        info: function() {
-            return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
-        }
-    },
-    {
-        title: "The Lord of the Rings",
-        author: "J.R.R. Tolkien",
-        pages: 1178,
-        read: false,
-        id: crypto.randomUUID(),
-        info: function() {
-            return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
-        }
-    }
+    new Book("The Hobbit", "J.R.R. Tolkien", 295, true),
+    new Book("The Lord of the Rings", "J.R.R. Tolkien", 1178, false),
+    new Book("The Catcher in the Rye", "J.D. Salinger", 277, true),
+    new Book("To Kill a Mockingbird", "Harper Lee", 281, false),
+    new Book("1984", "George Orwell", 328, true),
+    new Book("The Great Gatsby", "F. Scott Fitzgerald", 180, false),
 ];
 
 function Book(title, author, pages, read) {
@@ -28,7 +14,10 @@ function Book(title, author, pages, read) {
   this.read = read;
   this.id = crypto.randomUUID();
   this.info = function() {
-    return `${title} by ${author}, ${pages} pages, ${read}`;
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
+  };
+  this.toggleRead = function() {
+    this.read = !this.read;
   };
 }
 
@@ -54,6 +43,7 @@ function displayBooks() {
                 <p class="book-author">Author: ${book.author}</p>
                 <p class="book-pages">Pages: ${book.pages}</p>
                 <p class="book-read">Read: ${book.read ? "Yes" : "No"}</p>
+                <button class="btn btn-read" data-id="${book.id}">${book.read ? "Finished" : "Not Read"}</button>
                 <button class="btn btn-delete" data-id="${book.id}">Delete</button>
             </div>
         `;
@@ -65,6 +55,17 @@ function displayBooks() {
         button.addEventListener("click", (e) => {
             const bookId = e.target.dataset.id;
             deleteBook(bookId);
+        });
+    });
+
+    const readButtons = document.querySelectorAll(".btn-read");
+    readButtons.forEach(button => {
+        button.addEventListener("click", e => {
+            const bookId = e.target.dataset.id;
+            const book = myLibrary.find(book => book.id === bookId);
+            book.toggleRead();
+            e.target.textContent = book.read ? "Finished" : "Not Read";
+            // e.target.classList.toggle("btn-read");
         });
     });
     console.log(myLibrary);
