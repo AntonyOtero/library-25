@@ -54,11 +54,28 @@ function displayBooks() {
                 <p class="book-author">Author: ${book.author}</p>
                 <p class="book-pages">Pages: ${book.pages}</p>
                 <p class="book-read">Read: ${book.read ? "Yes" : "No"}</p>
+                <button class="btn btn-delete" data-id="${book.id}">Delete</button>
             </div>
         `;
-            // <button class="btn-delete" data-id="${book.id}">Delete</button>
         books.appendChild(bookItem);
     });
+
+    const deleteButtons = document.querySelectorAll(".btn-delete");
+    deleteButtons.forEach(button => {
+        button.addEventListener("click", (e) => {
+            const bookId = e.target.dataset.id;
+            deleteBook(bookId);
+        });
+    });
+    console.log(myLibrary);
+}
+
+function deleteBook(id) {
+    const bookIndex = myLibrary.findIndex(book => book.id === id);
+    if (bookIndex !== -1) {
+        myLibrary.splice(bookIndex, 1);
+        displayBooks();
+    }
 }
 
 displayBooks();
@@ -85,3 +102,4 @@ addBookButton.addEventListener("click", (e) => {
     displayBooks();
     newBookModal.close();
 });
+
