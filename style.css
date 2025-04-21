@@ -151,7 +151,7 @@ header {
 .btn-read:active {
     background-color: #f3f0ec;
 }
-
+/* 
 .modal {
     position: relative;
     padding: 2rem;
@@ -159,7 +159,7 @@ header {
     flex-direction: column;
     gap: 1rem;
     align-items: center;
-}
+} */
 
 .debug {
     background-color: #f0bfbf;
